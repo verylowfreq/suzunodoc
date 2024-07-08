@@ -10,16 +10,7 @@ nav_order: 200
 
 ## Suzuno32RV (V1)
 
- - 基板上に `Suzuno32RV V1`と印刷があります。
- - オフラインイベント「技術書典 15」にて頒布されました。
  - Type-Aコネクタが実装されています。
-
-
-## Suzuduino UNO (V1c)
-
- - （未発表です。）
- - 基板上に `Suzuduino UNO V1c` と印刷があります。
- - デバッグ用ピンヘッダが WCH Link-E ケーブルのピンレイアウトと一致するようにしました。
 
 
 ## Suzuduino UNO (V1b)

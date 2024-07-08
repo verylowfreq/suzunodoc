@@ -16,9 +16,9 @@ Suzuno32RV / Suzuduino UNOを使って、Lチカをしてみましょう。PA5�
  - Suzuno32RV / Suzuduino UNO
  - USB Type-Cケーブル
 
-本ドキュメントでは**Windows環境を対象**とします。LinuxとmaxOSでもほぼ同様にできるようですが、検証しきれていないため、適宜読み替えたり、追加作業が発生するようです。
+本ドキュメントでは**Windows環境を対象**とします。
 
-USBケーブルは**データ通信可能なものか**をよくご確認ください。※充電専用のType-Cケーブルも存在します。
+USBケーブルは**データ通信可能なものか**をよくご確認ください。※充電専用のType-Cケーブルも流通しているようです。
 
 
 ## Arduino IDEの準備
@@ -27,19 +27,19 @@ Arduino IDEをダウンロード、インストールしてください。
 
 Arduino IDEを起動したら、「基本設定」→「追加のボードマネージャーのURL」に、以下のURLを追加してください。
 
-`https://github.com/verylowfreq/arduino_core_ch32_sz/raw/custom/package_ch32v_sz_index.json`
+`https://raw.githubusercontent.com/verylowfreq/board_manager_ch32/main/package_ch32v_index_sz.json`
 
-ボードマネージャーで "ch32" を検索して、"arduino_core_ch32_sz"をインストールしてください。
+ボードマネージャーで "ch32" を検索して、"CH32V Boards by M.S."をインストールしてください。
 
 ## USBドライバの準備
 
 WindowsでArduino IDEからUSB書き込みをするために、zadigというツールでデバイスドライバの設定をする必要があります。このツールは、特定のUSBデバイスで利用するデバイスドライバの設定を上書きするものです。
 
-開発に利用するポートをひとつ決めて、Suzuno32RV/Suzuduino UNOをUSB書き込み待機モードでパソコンに接続します。**BOOTスイッチを押しながらボードをパソコンに接続**してください。
+**開発に利用するポートをひとつ決めて**、Suzuno32RV/Suzuduino UNOをUSB書き込み待機モードでパソコンに接続します。BOOTスイッチを押しながらボードをパソコンに接続してください。
 
 zadig をダウンロードし、実行してください。
 
-zadig: https://zadig.akeo.ie/
+zadig: [https://zadig.akeo.ie/](https://zadig.akeo.ie/)
 
 "Options" → "List All Devices" にチェックを入れてください。
 
@@ -60,9 +60,9 @@ zadigウィンドウ内の矢印の**ひだり側**の表示が "WinUSB" とな�
 
 ## コンパイルのオプションを選択する
 
-「ツール」→「ボード」→「CH32V EVT MCU Board Support」→「CH32V20x」を選択してください。
-「ツール」→「Board select」から、ご利用のボードを選択してください。
-「ツール」→「Upload method」→「WCHISP」を選択してください。
+「ツール」→「ボード」→「CH32V Boards by M.S.」→「CH32V20x」を選択してください。
+「ツール」→「Board select」から、"Suzuno32RV/SuzuduinoUNO"を選択してください。
+「ツール」→「Upload method」→「WCH-ISP」を選択してください。
 
 
 ## コードを書く

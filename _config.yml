@@ -21,8 +21,7 @@
 title: Suzuno32RV / Suzuduino UNO ドキュメント
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Suzuno32RV/Suzuduino UNOは、32bit RISC-Vマイコン WCH CH32Vを搭載した
-  UNO形状のマイコンボードです。
+  Suzuno32RV/Suzuduino UNOは、32bit RISC-Vマイコン WCH CH32Vを搭載した、UNO形状のマイコンボードです。
 baseurl: "/suzunodoc" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: verylowfreq

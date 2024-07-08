@@ -15,6 +15,35 @@ Arduino IDEでTinyUSBを利用するには、「ツール」→「USB support」
 USBデバイス機能が暴走したなどの緊急時には、USB書き込み待機モードでリセットしてください。
 
 
+## USBシリアル
+
+Arduino LeonardoやUNO R4のように、USB接続上でシリアル通信をすることができます。
+
+Arduino IDEでボードを正しく選択したあと、「ツール」→「USB support」→「USBD」を選択します。これで `Serial` が自動的にUSBシリアルへと置き換わります。
+
+```
+#include <Adafruit_TinyUSB.h>
+
+void setup() {
+  // 動作確認用のLED
+  pinMode(PA5, OUTPUT);
+  // USB有効時、これはUSBシリアルになる
+  Serial.begin(115200);
+  // Serial1はPA9,PA10ピンに引き出されたシリアルポート
+  Serial1.begin(115200);
+}
+
+void loop() {
+  digitalWrite(PA5, HIGH);
+  delay(100);
+  digitalWrite(PA5, LOW);
+  Serial.println("Hello from USB Serial");
+  Serial1.println("Hello from Hardware Serial (PA9, PA10)");
+  delay(1000);
+}
+```
+
+
 ## USB入力デバイス（TinyUSB利用）
 
 ```
@@ -91,7 +120,7 @@ void loop() {
 USB入力デバイスは HID という仕様で動作します (Human Interface Deviceクラス)。HIDのデバイスは、HIDレポートという単位でパソコンと情報をやりとりし、そのレポートの内容はHIDレポートディスクリプタというバイナリで定義します。
 USBキーボードの場合、典型的には8バイトのHIDレポートを用いてパソコンへ入力の状態を送信します。これに対応するHIDレポートディスクリプタはTinyUSBに用意されています。
 
-USBキーボードのHIDレポートの概要としては、
+USBキーボードのHIDレポートは、
  - 修飾キーの状態（1バイト）
  - 固定値 0x00
  - 入力キー 1
@@ -109,7 +138,9 @@ USBキーボードのHIDレポートの概要としては、
 
 公式サンプルコードはMounRiver Studioで利用することが前提のC言語コードなので、Arduino IDEでもコンパイルできるように修正します。
 
-HIDまわりの動作についてはTinyUSBと同じです。ただし設定用の関数などは用意されていないため、USBまわりの挙動は各種のディスクリプタを直接書き換えてください。
+HIDまわりの仕様についてはTinyUSBと同じです。ただし設定用の関数などは用意されていないため、USBまわりの挙動は各種のディスクリプタを直接書き換えてください。
+
+コンパイル時にはArduino IDEの「USB support」は「None」にしてください。
 
 コードはGitHubにて公開しています。
 

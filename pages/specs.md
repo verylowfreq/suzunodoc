@@ -25,7 +25,7 @@ nav_order: 100
 |---|---|---|
 | メインチップ | CH32V203C8T6 | LQFP 48pin |
 | 水晶発振子 | 8MHz | | 
-| USBホスト機能 | 対応 | Type-AコネクタにUSBHDペリフェラルが結線 | 
+| USBホスト機能 | 対応 | Type-AコネクタにUSBFSペリフェラルが結線 | 
 
 
 ## Suzuduino UNO

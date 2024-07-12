@@ -13,7 +13,7 @@ Suzuno32RV / Suzuduino UNO は、WCH CH32Vチップを搭載したマイコン�
 <img alt="Suzuno32RV(V1)外観" src="images/suzuno32rvv1.jpg" width=320>
 <img alt="Suzuduino UNO(V1b)外観" src="images/suzuduinounov1b.jpg" width=320>
 
-Suzuduino UNOは手作業の実装も可能な、スルーホール部品を主体にした構成です。
+Suzuduino UNOは手作業の実装も可能な、スルーホール部品を主体にした構成です。USBデバイスの開発も可能です。
 
 Suzuno32RVにはUSB Type-Aコネクタを実装し、USBホスト機能にも挑戦できます。
 

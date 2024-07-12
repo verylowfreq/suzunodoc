@@ -17,14 +17,21 @@ Suzuno32RVの搭載しているCH32V203C8T6はUSBホスト機能にも対応し�
 
 WCH提供のサンプルコードは、EVTパッケージ内 `EVT/EXAM/USB/USBFS` にあります。"HOST_*" がUSBホスト機能のサンプル、`DEVICE/`以下がUSBデバイス機能のサンプルです。
 
-## コード全体
+USBキーボードの読み取り、MTPデバイス接続、USBメモリ（マスストレージ）のアクセスなどができます。
 
-USBでのキーボードの入力読み取りは、ホスト側が定期的にデータを要求し、キーボードが入力の状態を返答することで行なわれます。
+公式サンプルコードはMounRiver Studio向けのプロジェクトです。必要なファイルのコピーやC++環境向けの改変をすることで、PlatformIOでビルド可能な場合もあります。
+
+公式サンプルコード： [https://github.com/openwch/ch32v20x/tree/main/EVT/EXAM/USB/USBFS](https://github.com/openwch/ch32v20x/tree/main/EVT/EXAM/USB/USBFS)
+
+
+## Arduinoでビルド可能なUSBキーボード→シリアル出力
+
+公式サンプルコードをわたしが改変した、USBキーボード入力を読み取って情報をシリアルへ出力するコードです。Arduino IDEでビルドできます。
+
+[https://github.com/verylowfreq/arduino_ch32v203_uart_usbhost_keyboard](https://github.com/verylowfreq/arduino_ch32v203_uart_usbhost_keyboard)
+
+USBでのキーボードの入力読み取りは、ホスト側（ここではSuzuno32RV）が定期的にデータを要求し、接続されたキーボードが入力の状態を返答することで行なわれます。
 
 ポートにキーボードが直接接続された場合と、USBハブを経由している場合で処理が若干異なるため、サンプルコードでは切り分けてコードが書かれています。
 
-## 改変したコード
-
-コード全体はGitHubで公開していますが、ここではその一部分だけを解説します。
-
-サンプルコードのキーボード入力読み取りのルーチンでグローバル変数に最新のHIDレポートを格納します。これを読み取ります。
+なお本コードは簡易的なものであり、入力が正常に読み取れないキーボードもあります。
